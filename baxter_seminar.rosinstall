@@ -1,8 +1,0 @@
-- git: 
-    local-name: baxter_seminar
-    uri: https://github.com/tork-a/baxter_seminar.git
-    version: master
-- git:
-    local-name: moveit_robots
-    uri: https://github.com/ros-planning/moveit_robots.git
-    version: master
