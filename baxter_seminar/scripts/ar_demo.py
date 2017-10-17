@@ -70,7 +70,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # move to a way point
-    pose_st_target.pose.position.z += 0.2
+    pose_st_target.pose.position.z += 0.05
     rospy.loginfo("set target to {}".format(pose_st_target.pose))
     group.set_pose_target(pose_st_target.pose)
     plan = group.plan()

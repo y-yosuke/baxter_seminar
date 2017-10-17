@@ -32,7 +32,8 @@
     </node>
   </group>
   <!--  right or left(0.1) / up or down (0.0)/ fornt or back (0.15) -->
-  <node pkg="tf" type="static_transform_publisher" name="base_to_checkerboard" args="0.080 0.120 0.150 0.0 1.5708 1.5708 /object /base 100" />
+  <node pkg="tf" type="static_transform_publisher" name="checkerboard_to_world"
+        args="0.080 0.120 0.150 0.0 1.5708 1.5708 /object /world 100" />
   <node pkg="dynamic_tf_publisher" name="tf_publish" type="tf_publish.py"/>
 
   <!-- end checkerboard  -->
