@@ -35,7 +35,8 @@
               args="0 0 0 -1.5708 0 0 /left_hand_camera_axis /cameras/left_hand_camera 100" />
 
   <!-- workaround for roi problem of ar_marker-->
-  <include file="$(find jsk_baxter_startup)/jsk_baxter_sensors/camera_info_fixer.launch" />
+<!--  <include file="$(find jsk_baxter_startup)/jsk_baxter_sensors/camera_info_fixer.launch" /> -->
+  <include file="$(find baxter_seminar_helper)/launch/camera_info_fixer.launch" />
   <node pkg="ar_track_alvar" type="individualMarkersNoKinect"
         name="ar_track"
         args="4.5 0.1 0.1
