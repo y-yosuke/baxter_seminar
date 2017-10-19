@@ -1,0 +1,25 @@
+<launch>
+  <arg name="camera_driver" default="false" />
+
+  <node ns="cameras/right_hand_camera" pkg="uvc_camera" type="uvc_camera_node" name="right_hand_camera" if="$(arg camera_driver)" >
+    <param name="camera_info_url" value="file://$(find baxter_seminar_helper)/config/camera.yaml" />
+    <param name="frame_id" value="/cameras/right_hand_camera" />
+    <remap from="image_raw" to="image" />
+  </node>
+
+
+  <!-- tf publish for hand cameras -->
+  <node pkg="tf" type="static_transform_publisher" name="camera_hand_r_link_to_frame" 
+              args="0 0 0 -1.5708 0 0 /right_hand_camera_axis /cameras/right_hand_camera 100" />
+  <node pkg="tf" type="static_transform_publisher" name="camera_hand_l_link_to_frame"
+              args="0 0 0 -1.5708 0 0 /left_hand_camera_axis /cameras/left_hand_camera 100" />
+
+  <!-- workaround for roi problem of ar_marker-->
+  <include file="$(find baxter_seminar_helper)/launch/camera_info_fixer.launch" />
+  <node pkg="ar_track_alvar" type="individualMarkersNoKinect"
+        name="ar_track"
+        args="4.5 0.1 0.1
+              /cameras/right_hand_camera/image
+              /cameras/right_hand_camera/camera_info_fixed
+              /right_hand_camera_axis" />
+</launch>
