@@ -28,7 +28,7 @@
 	  clear_params="true" />
   </group>
 
-  <include file="$(dind baxter_seminar_helper)/launch/ar.launch" />
+  <include file="$(find baxter_seminar_helper)/launch/ar.launch" />
   
   <include file="$(find baxter_moveit_config)/launch/baxter_grippers.launch">
     <arg name="rviz_config" value="$(arg rviz_config)" />
